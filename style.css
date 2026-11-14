@@ -367,6 +367,25 @@ button {
 
 
 
+.why-section {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 90px 5%;
+    text-align: center;
+}
+
+.why-section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(32px, 4vw, 46px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.why-section > p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 0 auto 25px;
+    color: var(--gray);
+}
 
 }
 

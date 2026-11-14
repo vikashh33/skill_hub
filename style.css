@@ -267,5 +267,106 @@ button {
     border: 7px solid white;
     border-radius: 5px;
     background: #edf1ed;
+
+
+
+
+    .trusted-section {
+    margin-top: 75px;
+}
+
+.trusted-section > p {
+    color: #929a95;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+.company-logos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #59665f;
+}
+
+.company-logos > span {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.ms-icon {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    vertical-align: middle;
+    background: #627a6b;
+}
+.services {
+    padding: 75px 5%;
+    background: #f8faf8;
+}
+
+.section-heading {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.section-heading > p {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.2;
+    margin-top: 12px;
+}
+
+.service-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.service-card {
+    display: block;
+    padding: 28px;
+    border: 1px solid #e3e9e4;
+    border-radius: 12px;
+    background: white;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: #a8d9a5;
+    box-shadow: 0 10px 25px rgba(20, 100, 50, 0.08);
+}
+
+.service-card > span {
+    font-size: 32px;
+}
+
+.service-card h3 {
+    font-size: 17px;
+    margin: 12px 0 5px;
+}
+
+.service-card p {
+    color: var(--gray);
+    font-size: 13px;
+}
+
+
+
+
 }
 

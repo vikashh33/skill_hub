@@ -478,5 +478,138 @@ button {
         height: 250px;
     }
 }
+
+
+@media (max-width: 700px) {
+
+    .navbar {
+        min-height: 70px;
+        padding: 12px 5%;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 27px;
+    }
+
+    .nav-links,
+    .nav-search {
+        display: none;
+    }
+
+    .nav-buttons {
+        margin-left: auto;
+    }
+
+    .login-btn {
+        font-size: 12px;
+    }
+
+    .signup-btn {
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .navbar.menu-open .nav-links {
+        display: flex;
+        order: 4;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .navbar.menu-open .nav-search {
+        display: flex;
+        order: 5;
+        width: 100%;
+        max-width: none;
+    }
+
+    .category-nav {
+        justify-content: flex-start;
+        padding: 13px 5%;
+        gap: 22px;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 45px 5% 35px;
+        gap: 35px;
+    }
+
+    .hero h1 {
+        font-size: clamp(43px, 10vw, 60px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .hero-images {
+        min-height: 360px;
+    }
+
+    .image-top {
+        width: 72%;
+        right: 15%;
+        height: 230px;
+    }
+
+    .image-bottom {
+        width: 75%;
+        height: 220px;
+    }
+
+    .trusted-section {
+        margin-top: 45px;
+    }
+
+    .company-logos {
+        gap: 15px 22px;
+    }
+
+    .company-logos > span {
+        font-size: 13px;
+    }
+
+    .services {
+        padding: 55px 5%;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .service-card {
+        padding: 18px;
+    }
+
+    .service-card h3 {
+        font-size: 14px;
+    }
+
+    .service-card p {
+        font-size: 12px;
+    }
+
+    .footer-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px 20px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
 }
 

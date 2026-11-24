@@ -3,247 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillHub | Find Talent & Work</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SkillHub - Freelance Marketplace</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #ffffff;
+            color: #102d29;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 22px 4%;
+            border-bottom: 1px solid #eeeeee;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 34px;
+            font-weight: bold;
+            color: #102d29;
+        }
+
+        .logo span {
+            color: #09a65a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a,
+        .auth a {
+            text-decoration: none;
+            color: #263b38;
+            font-size: 16px;
+        }
+
+        .search {
+            padding: 15px 20px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 15px;
+        }
+
+        .auth {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .signup {
+            background: #079e53;
+            color: white !important;
+            padding: 14px 25px;
+            border-radius: 9px;
+        }
+
+        /* Category Navbar */
+        .categories {
+            display: flex;
+            justify-content: space-between;
+            padding: 23px 4%;
+            background: #f5f9f7;
+            gap: 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .categories a {
+            text-decoration: none;
+            color: #45534f;
+            font-size: 16px;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 55px 4% 45px;
+            gap: 35px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .tagline {
+            color: #079e53;
+            letter-spacing: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(45px, 5.7vw, 78px);
+            line-height: 1.05;
+            color: #092b25;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            font-size: 22px;
+            color: #687570;
+            line-height: 1.6;
+            max-width: 580px;
+            margin-bottom: 35px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 17px 35px;
+            border-radius: 9px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #079e53;
+            color: white;
+            border: 2px solid #079e53;
+        }
+
+        .btn-secondary {
+            color: #078747;
+            border: 2px solid #079e53;
+            background: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-primary:hover {
+            background: #067c42;
+        }
+
+        .btn-secondary:hover {
+            background: #e9f8ef;
+        }
+
+        /* Hero Images */
+        .hero-images {
+            flex: 1;
+            min-width: 0;
+            height: 510px;
+            position: relative;
+        }
+
+        .bg-shape {
+            position: absolute;
+            width: 190px;
+            height: 180px;
+            background: #e1f5e9;
+            border-radius: 30px;
+        }
+
+        .shape-one {
+            top: 80px;
+            right: 22%;
+        }
+
+        .shape-two {
+            bottom: 25px;
+            left: 5%;
+        }
+
+        .image-one {
+            position: absolute;
+            top: 0;
+            right: 25%;
+            width: 68%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 5px solid white;
+        }
+
+        .image-two {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 72%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 5px solid white;
+        }
+
+        /* Trusted Section */
+        .trusted {
+            padding: 25px 4% 55px;
+        }
+
+        .trusted-title {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            color: #77827f;
+            letter-spacing: 4px;
+            font-size: 15px;
+            font-weight: bold;
+            justify-content: center;
+        }
+
+        .line {
+            height: 1px;
+            background: #d9dfdc;
+            flex: 1;
+        }
+
+        .brands {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 35px;
+            margin-top: 45px;
+        }
+
+        .brand {
+            font-size: 25px;
+            font-weight: bold;
+            color: #4e5a59;
+        }
+
+        .brand.microsoft {
+            color: #686868;
+        }
+
+        .brand.github {
+            color: #172b35;
+        }
+
+        .brand.ge {
+            color: #2564a4;
+            font-family: Georgia, serif;
+        }
+
+        .brand.godaddy {
+            color: #087b70;
+        }
+
+        .brand.nvidia {
+            color: #17251f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .search {
+                width: 220px;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero-images {
+                width: 100%;
+                height: 450px;
+            }
+
+            .image-one {
+                width: 65%;
+            }
+
+            .image-two {
+                width: 65%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 18px 5%;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            .search {
+                order: 3;
+                width: 100%;
+            }
+
+            .auth {
+                gap: 12px;
+            }
+
+            .signup {
+                padding: 11px 15px;
+            }
+
+            .categories {
+                padding: 17px 5%;
+            }
+
+            .hero {
+                padding: 40px 5%;
+            }
+
+            .tagline {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .description {
+                font-size: 17px;
+            }
+
+            .btn {
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+
+            .hero-images {
+                height: 350px;
+            }
+
+            .image-one {
+                height: 260px;
+                width: 70%;
+            }
+
+            .image-two {
+                height: 210px;
+                width: 70%;
+            }
+
+            .trusted-title {
+                font-size: 11px;
+                letter-spacing: 2px;
+                gap: 10px;
+            }
+
+            .brand {
+                font-size: 20px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <h1>Welcome to SkillHub!</h1>
-    <p>Find Talent & Work</p>
-    <button>Get Started</button>
+    <!-- Main Navbar -->
+    <header class="navbar">
 
-<header class="navbar">
-
-        <a href="#" class="logo">skill<span>hub</span></a>
+        <div class="logo">Skill<span>Hub</span></div>
 
         <nav class="nav-links">
-            <a href="#talent">Find Talent ▾</a>
-            <a href="#work">Find Work ▾</a>
-            <a href="#why">Why SkillHub ▾</a>
+            <a href="#">Find Talent ﹀</a>
+            <a href="#">Find Work ﹀</a>
+            <a href="#">Why SkillHub ﹀</a>
         </nav>
 
-        <div class="nav-search">
-            <span>⌕</span>
-            <input type="text" id="navSearch" placeholder="Search services">
-        </div>
+        <input type="text" class="search"
+               placeholder="⌕  Search services...">
 
-        <div class="nav-buttons">
-            <button class="login-btn" onclick="showLogin()">Log In</button>
-            <button class="signup-btn" onclick="showSignup()">Sign Up</button>
+        <div class="auth">
+            <a href="#">Log In</a>
+            <a href="#" class="signup">Sign Up</a>
         </div>
-
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
-            ☰
-        </button>
 
     </header>
 
-     <div class="category-nav">
-        <a href="#development">Development & IT</a>
-        <a href="#design">Design & Creative</a>
-        <a href="#marketing">Sales & Marketing</a>
-        <a href="#writing">Writing & Translation</a>
-        <a href="#support">Admin & Customer Support</a>
-        <a href="#finance">Finance & Accounting</a>
+    <!-- Categories -->
+    <div class="categories">
+        <a href="#">Development & IT</a>
+        <a href="#">Design & Creative</a>
+        <a href="#">Sales & Marketing</a>
+        <a href="#">Writing & Translation</a>
+        <a href="#">Admin & Customer Support</a>
+        <a href="#">Finance & Accounting</a>
     </div>
 
-    <main>
+    <!-- Hero Section -->
+    <section class="hero">
 
-        <section class="hero" id="talent">
-            
-        </section>
- <div class="hero-content">
+        <div class="hero-content">
 
-                <p class="eyebrow">YOUR TALENT. YOUR FUTURE.</p>
-
-                <h1>
-                    The world's work
-                    <span>marketplace</span>
-                </h1>
-
-                <p class="hero-description">
-                    Connect with talented freelancers to bring your
-                    ideas to life. Discover skilled professionals and
-                    unlock the full potential of your business.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <button class="primary-btn" onclick="findTalent()">
-                        Find Talent
-                    </button>
-
-                    <button class="secondary-btn" onclick="findWork()">
-                        Find Work
-                    </button>
-
-                </div>
-
-                 <div class="trusted-section">
-
-                    <p>TRUSTED BY TEAMS AND CREATORS</p>
-
-                    <div class="company-logos">
-                        <span class="microsoft">
-                            <span class="ms-icon"></span> Microsoft
-                        </span>
-
-                        <span class="github">◉ GitHub</span>
-
-                        <span class="ge">GE</span>
-
-                        <span class="godaddy">GoDaddy</span>
-
-                        <span class="nvidia">NVIDIA</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-             <div class="hero-images">
-
-                <div class="image-top">
-                    <img
-                        src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85"
-                        alt="Professional working with a team"
-                    >
-                </div>
-
-                <div class="image-bottom">
-                    <img
-                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85"
-                        alt="Freelancer working on a laptop"
-                    >
-                </div>
-
-            </div>
-
-        </section>
-
-         <section class="services" id="work">
-
-            <div class="section-heading">
-                <p>EXPLORE YOUR POSSIBILITIES</p>
-                <h2>Find the right skills for your next big idea</h2>
-            </div>
-
-            <div class="service-grid">
-
-                <a href="#development" class="service-card" id="development">
-                    <span>💻</span>
-                    <h3>Development & IT</h3>
-                    <p>Websites, applications and software</p>
-                </a>
-
-                <a href="#design" class="service-card" id="design">
-                    <span>🎨</span>
-                    <h3>Design & Creative</h3>
-                    <p>Logos, graphics and user interfaces</p>
-                </a>
-
-                <a href="#marketing" class="service-card" id="marketing">
-                    <span>📈</span>
-                    <h3>Sales & Marketing</h3>
-                    <p>SEO, advertising and social media</p>
-                </a>
-
-                <a href="#writing" class="service-card" id="writing">
-                    <span>✍️</span>
-                    <h3>Writing & Translation</h3>
-                    <p>Articles, blogs and copywriting</p>
-                </a>
-
-                <a href="#support" class="service-card" id="support">
-                    <span>🤝</span>
-                    <h3>Admin & Support</h3>
-                    <p>Virtual assistance and business support</p>
-                </a>
-
-                <a href="#finance" class="service-card" id="finance">
-                    <span>💰</span>
-                    <h3>Finance & Accounting</h3>
-                    <p>Bookkeeping and financial services</p>
-                </a>
-
-            </div>
-
-        </section>
-
-
-         <section class="why-section" id="why">
-
-            <p class="eyebrow">WHY SKILLHUB?</p>
-
-            <h2>Great talent can change everything.</h2>
-
-            <p>
-                Whether you're building a business or growing your
-                freelance career, SkillHub helps you find new
-                opportunities and make meaningful connections.
+            <p class="tagline">
+                YOUR TALENT. YOUR OPPORTUNITIES.
             </p>
 
-            <button class="primary-btn" onclick="findTalent()">
-                Get Started →
-            </button>
+            <h1>
+                The world's work marketplace
+            </h1>
 
-        </section>
+            <p class="description">
+                Connect with skilled freelancers and bring your
+                ideas to life. Discover talent, collaborate and
+                make your next project successful.
+            </p>
 
-    </main>
+            <div class="buttons">
+                <a href="#" class="btn btn-primary">
+                    Find Talent
+                </a>
 
-
-     <footer class="footer">
-
-        <div class="footer-top">
-
-            <div class="footer-brand">
-                <a href="#" class="logo">skill<span>hub</span></a>
-
-                <p>
-                    Connecting skills with opportunities.
-                    Building a better way to work.
-                </p>
-            </div>
-
-            <div class="footer-column">
-                <h3>For Clients</h3>
-                <a href="#talent">Find Talent</a>
-                <a href="#work">Browse Services</a>
-                <a href="#why">How It Works</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>For Freelancers</h3>
-                <a href="#work">Find Work</a>
-                <a href="#work">Explore Categories</a>
-                <a href="#why">Why SkillHub</a>
-            </div>
-
-            <div class="footer-column">
-                <h3>Company</h3>
-                <a href="#why">About Us</a>
-                <a href="mailto:hello@skillhub.example">Contact</a>
-                <a href="#why">Our Mission</a>
+                <a href="#" class="btn btn-secondary">
+                    Find Work
+                </a>
             </div>
 
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2026 SkillHub. All rights reserved.</p>
-            <p>Built for skills. Designed for opportunities.</p>
+        <!-- Images -->
+        <div class="hero-images">
+
+            <div class="bg-shape shape-one"></div>
+            <div class="bg-shape shape-two"></div>
+
+            <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=900"
+                class="image-one"
+                alt="Freelancer working">
+
+            <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=900"
+                class="image-two"
+                alt="Creative professional working">
+
         </div>
 
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Trusted Companies -->
+    <section class="trusted">
 
-</body>
-</html>
+        <div class="trusted-title">
+            <div class="line"></div>
+            <span>TRUSTED BY TEAMS AND CREATORS</span>
+            <div class="line"></div>
+        </div>
 
+        <div class="brands">
 
-        
+            <div class="brand microsoft">
+                🟦 Microsoft
+            </div>
+
+            <div class="brand github">
+                ◉ GitHub
+            </div>
+
+            <div class="brand ge">
+                ◉ GE
+            </div>
+
+            <div class="brand godaddy">
+                ♡ GoDaddy
+            </div>
+
+            <div class="brand nvidia">
+                ◉ NVIDIA
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
 </html>

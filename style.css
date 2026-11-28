@@ -243,7 +243,7 @@ button {
     flex: 1;
     min-width: 400px;
     max-width: 720px;
-    height: 440px;
+    height: 350 0px;
 }
 
 .hero-images img {
@@ -512,7 +512,7 @@ button {
     }
 
     .hero-images {
-        height: 350px;
+        height: 35git 0px;
     }
 
     .company {
